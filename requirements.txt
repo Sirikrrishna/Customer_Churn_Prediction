@@ -6,4 +6,6 @@ scipy
 plotly
 scikit-learn
 imblearn
+xgboost
+dill
 #-e .
