@@ -42,14 +42,44 @@ class ModelTrainer:
             )
             models = {
                 "Random Forest": RandomForestClassifier(),
-                "KNN Classifer": KNeighborsClassifier(),
-                "XGB Classifer": XGBClassifier(),
-                "Catboost Classifer": CatBoostClassifier(),
+                "KNN Classifier": KNeighborsClassifier(),
+                "XGB Classifier": XGBClassifier(),
+                "Catboost Classifier": CatBoostClassifier(),
                 "SVM": svm.SVC()
             }
-
+            params={
+                "Random Forest": {
+                        #'n_estimators': [100, 200, 300],
+                        #'max_depth': [10, 20, 30, None],
+                        #'min_samples_split': [2, 5, 10],
+                        'min_samples_leaf': [1, 2, 4],
+                        'bootstrap': [True, False]
+                },
+                "KNN Classifier":{
+                    #'n_neighbors': [3, 5, 7, 9],
+                    #'weights': ['uniform', 'distance'],
+                    'metric': ['euclidean', 'manhattan']
+                },
+                "XGB Classifier":{
+                    #'learning_rate': [0.01, 0.1, 0.2],
+                    #'n_estimators': [100, 200, 300],
+                    #'max_depth': [3, 5, 7],
+                    'colsample_bytree': [0.3, 0.7]
+                },
+                "Catboost Classifier":{
+                    #'depth': [4, 6, 8, 10],
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    #'iterations': [100, 200, 500]
+                },
+                "SVM":{
+                    #'C': [0.1, 1, 10, 100],
+                    #'gamma': [1, 0.1, 0.01, 0.001],
+                    'kernel': ['rbf', 'poly', 'sigmoid']
+                }
+            }
+            
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
-                                             models=models)
+                                             models=models,param=params)
             
             ### This will give you best model score from the dictionary
             best_model_score = max(sorted(model_report.values()))
