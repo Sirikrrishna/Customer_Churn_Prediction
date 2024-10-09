@@ -8,4 +8,6 @@ scikit-learn
 imblearn
 xgboost
 dill
+flask
+pymongo
 #-e .
