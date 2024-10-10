@@ -1,14 +1,62 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Churn Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 700px;
+            margin: 50px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #343a40;
+        }
+        .form-label {
+            font-weight: 500;
+        }
+        .mb-3 input, .mb-3 select {
+            border-radius: 6px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .placeholder {
+            color: #6c757d;
+        }
+    </style>
 </head>
 <body>
+
     <div class="form-container">
         <h1>Customer Churn Prediction</h1>
         
         <form action="{{ url_for('predict_datapoint') }}" method="post">
             <h2>Enter Customer Information</h2>
 
+            <!-- Gender -->
             <div class="mb-3">
                 <label class="form-label">Gender</label>
                 <select class="form-control" name="gender" required>
@@ -18,6 +66,7 @@
                 </select>
             </div>
 
+            <!-- Senior Citizen -->
             <div class="mb-3">
                 <label class="form-label">Senior Citizen</label>
                 <select class="form-control" name="SeniorCitizen" required>
@@ -27,6 +76,7 @@
                 </select>
             </div>
 
+            <!-- Partner -->
             <div class="mb-3">
                 <label class="form-label">Partner</label>
                 <select class="form-control" name="Partner" required>
@@ -36,6 +86,7 @@
                 </select>
             </div>
 
+            <!-- Dependents -->
             <div class="mb-3">
                 <label class="form-label">Dependents</label>
                 <select class="form-control" name="Dependents" required>
@@ -45,11 +96,13 @@
                 </select>
             </div>
 
+            <!-- Tenure -->
             <div class="mb-3">
                 <label class="form-label">Tenure (Months)</label>
                 <input class="form-control" type="number" name="tenure" required min="0" />
             </div>
 
+            <!-- Phone Service -->
             <div class="mb-3">
                 <label class="form-label">Phone Service</label>
                 <select class="form-control" name="PhoneService" required>
@@ -59,6 +112,7 @@
                 </select>
             </div>
 
+            <!-- Multiple Lines -->
             <div class="mb-3">
                 <label class="form-label">Multiple Lines</label>
                 <select class="form-control" name="MultipleLines" required>
@@ -69,6 +123,7 @@
                 </select>
             </div>
 
+            <!-- Internet Service -->
             <div class="mb-3">
                 <label class="form-label">Internet Service</label>
                 <select class="form-control" name="InternetService" required>
@@ -79,6 +134,7 @@
                 </select>
             </div>
 
+            <!-- Online Security -->
             <div class="mb-3">
                 <label class="form-label">Online Security</label>
                 <select class="form-control" name="OnlineSecurity" required>
@@ -89,6 +145,7 @@
                 </select>
             </div>
 
+            <!-- Online Backup -->
             <div class="mb-3">
                 <label class="form-label">Online Backup</label>
                 <select class="form-control" name="OnlineBackup" required>
@@ -99,6 +156,7 @@
                 </select>
             </div>
 
+            <!-- Device Protection -->
             <div class="mb-3">
                 <label class="form-label">Device Protection</label>
                 <select class="form-control" name="DeviceProtection" required>
@@ -109,6 +167,7 @@
                 </select>
             </div>
 
+            <!-- Tech Support -->
             <div class="mb-3">
                 <label class="form-label">Tech Support</label>
                 <select class="form-control" name="TechSupport" required>
@@ -119,6 +178,7 @@
                 </select>
             </div>
 
+            <!-- Streaming TV -->
             <div class="mb-3">
                 <label class="form-label">Streaming TV</label>
                 <select class="form-control" name="StreamingTV" required>
@@ -129,6 +189,7 @@
                 </select>
             </div>
 
+            <!-- Streaming Movies -->
             <div class="mb-3">
                 <label class="form-label">Streaming Movies</label>
                 <select class="form-control" name="StreamingMovies" required>
@@ -139,6 +200,7 @@
                 </select>
             </div>
 
+            <!-- Contract Type -->
             <div class="mb-3">
                 <label class="form-label">Contract Type</label>
                 <select class="form-control" name="Contract" required>
@@ -149,6 +211,7 @@
                 </select>
             </div>
 
+            <!-- Paperless Billing -->
             <div class="mb-3">
                 <label class="form-label">Paperless Billing</label>
                 <select class="form-control" name="PaperlessBilling" required>
@@ -158,6 +221,7 @@
                 </select>
             </div>
 
+            <!-- Payment Method -->
             <div class="mb-3">
                 <label class="form-label">Payment Method</label>
                 <select class="form-control" name="PaymentMethod" required>
@@ -169,18 +233,20 @@
                 </select>
             </div>
 
+            <!-- Monthly Charges -->
             <div class="mb-3">
                 <label class="form-label">Monthly Charges</label>
-                <input class="form-control" type="number" name="MonthlyCharges" required min="0" step="0.01" />
+                <input class="form-control" type="number" step="0.01" name="MonthlyCharges" required min="0" />
             </div>
 
+            <!-- Total Charges -->
             <div class="mb-3">
                 <label class="form-label">Total Charges</label>
-                <input class="form-control" type="number" name="TotalCharges" required min="0" step="0.01" />
+                <input class="form-control" type="number" step="0.01" name="TotalCharges" required min="0" />
             </div>
 
             <div class="mb-3">
-                <input class="btn btn-primary" type="submit" value="Predict Customer Churn" required />
+                <input class="btn btn-primary" type="submit" value="Predict Customer Churn" />
             </div>
         </form>
 
@@ -188,5 +254,8 @@
             The prediction is: {{ results }}
         </h2>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

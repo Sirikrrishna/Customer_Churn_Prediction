@@ -27,11 +27,11 @@ class DataTransformation:
         This function is responsible for data transformation.
         '''
         try:
-            numerical_columns = ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges']
+            numerical_columns = ['tenure', 'MonthlyCharges', 'TotalCharges']
             categorical_columns = ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 
                                    'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 
                                    'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 
-                                   'PaperlessBilling', 'PaymentMethod']
+                                   'PaperlessBilling', 'PaymentMethod', 'SeniorCitizen']
 
             num_pipeline = Pipeline(
                 steps=[
@@ -77,13 +77,11 @@ class DataTransformation:
             preprocessing_obj = self.get_data_transformer_object()
 
             target_column = "Churn"
-            numerical_columns = ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges']
+            numerical_columns = ['tenure', 'MonthlyCharges', 'TotalCharges']
 
-            # Convert non-numeric values to NaN for numerical columns
             train_df[numerical_columns] = train_df[numerical_columns].apply(pd.to_numeric, errors='coerce')
             test_df[numerical_columns] = test_df[numerical_columns].apply(pd.to_numeric, errors='coerce')
 
-            # Encode target column if necessary
             train_df[target_column] = train_df[target_column].replace({'Yes': 1, 'No': 0})
             test_df[target_column] = test_df[target_column].replace({'Yes': 1, 'No': 0})
 

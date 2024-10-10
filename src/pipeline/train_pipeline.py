@@ -1,4 +1,3 @@
-# src/pipeline/training_pipeline.py
 import sys
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
