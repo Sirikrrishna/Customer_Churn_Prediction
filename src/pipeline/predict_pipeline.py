@@ -92,7 +92,6 @@ class CustomData:
 
             df = pd.DataFrame(custom_data_input_dict)
 
-            #logging info
             logging.info(f"Input data:\n{df}")
             
             return df
