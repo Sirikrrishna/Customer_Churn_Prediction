@@ -14,9 +14,9 @@ class DataIngestionConfig:
     train_data_path: str = os.path.join('artifacts', "train.csv")
     test_data_path: str = os.path.join('artifacts', "test.csv")
     raw_data_path: str = os.path.join('artifacts', "data.csv")
-    mongo_uri: str = "mongodb://localhost:27017/"  # MongoDB connection URI
-    database_name: str = "customers_churn"  # Database name
-    collection_name: str = "customers"  # Collection name
+    mongo_uri: str = "mongodb://localhost:27017/"
+    database_name: str = "customers_churn"
+    collection_name: str = "customers"
 
 
 class DataIngestion:
