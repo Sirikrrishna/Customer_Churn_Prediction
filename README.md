@@ -1,4 +1,5 @@
-##  Customer Churn Prediction
+<h1 align="center">Customer Churn Prediction</h1>
+
 An **end-to-end machine learning pipeline** to predict customer churn, including training, prediction, and deployment to AWS EC2 with Docker and GitHub Actions.
 ### Table of Contents
 ## 📚 Table of Contents
