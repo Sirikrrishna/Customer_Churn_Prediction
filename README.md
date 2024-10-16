@@ -1,1 +1,1 @@
-## End to End Machine learning project for Customer Churn Prediction
+## End to End Machine learning pipleline for Customer Churn Prediction
