@@ -155,11 +155,12 @@ Instructions to set up your local environment for running the project:
 
 ### Required:
 
-```bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker ubuntu
-newgrp docker
+  ```bash
+
+  curl -fsSL https://get.docker.com -o get-docker.sh
+  sudo sh get-docker.sh
+  sudo usermod -aG docker ubuntu
+  newgrp docker
 
 ### Configure EC2 as Self-Hosted Runner:
 Go to **Settings > Actions > Runners > New Self-Hosted Runner**.
