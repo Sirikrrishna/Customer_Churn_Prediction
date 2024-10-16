@@ -20,26 +20,28 @@ An **end-to-end machine learning pipeline** to predict customer churn, including
 This project is designed to **accurately predict customer churn**. The pipeline involves **data ingestion**, **transformation**, **model training**, **evaluation**, and **deployment**.
 
 ### Project Structure
-├── .github
-│   └── workflows/
-├── artifacts/
-├── mlproject_env 
-├── notebook       
-├── src/
-│   ├── components/
-│   ├── configuration/
-│   ├── exception.py
-│   ├── logger.py
-│   ├── pipeline/
-│   └── utils.py
-├── templates/
-├── .gitignore
-├── DOCKERFILE
-├── app.py
-├── requirements.txt
-├── setup.py
 
-### 🛠 Tech Stack
+        ```bash
+        ├── .github
+        │   └── workflows/
+        ├── artifacts/
+        ├── mlproject_env 
+        ├── notebook       
+        ├── src/
+        │   ├── components/
+        │   ├── configuration/
+        │   ├── exception.py
+        │   ├── logger.py
+        │   ├── pipeline/
+        │   └── utils.py
+        ├── templates/
+        ├── .gitignore
+        ├── DOCKERFILE
+        ├── app.py
+        ├── requirements.txt
+        ├── setup.py
+
+### Tech Stack
 
 - **Programming Language**: Python
 - **Database**: MongoDB
@@ -50,7 +52,7 @@ This project is designed to **accurately predict customer churn**. The pipeline 
 - **CI/CD**: GitHub Actions
 - **Web Application**: HTML
 
-### 🖥 How to Run
+### How to Run
 
 Instructions to set up your local environment for running the project:
 
@@ -69,9 +71,9 @@ Instructions to set up your local environment for running the project:
    python src/pipeline/main.py
    python app.py
 
-### ⚙️ Training Pipeline
+### Training Pipeline
 
-##### Data Ingestion:
+#### Data Ingestion:
 - Ingest data from MongoDB.
 - Split the data into train and test sets.
 - Export the data from MongoDB to CSV files for further processing.
@@ -86,23 +88,18 @@ Instructions to set up your local environment for running the project:
 - Perform hyperparameter tuning using **GridSearchCV** to find the best model with optimal parameters.
 - Evaluate the best model from the training pipeline.
 - Use the best-performing model for predictions on test data.
-
 #### Train Pipeline:
 - Execute the entire training pipeline to process data, train, evaluate, and deploy the model.
 
-### 🔮 Prediction Pipeline
-
+### Prediction Pipeline
 #### Ingest New Data:
 - Ingest new or unseen data from users or MongoDB.
-
 #### Data Transformation:
 - Transform the new data using the preprocessing steps from the training pipeline.
-
 #### Make Predictions:
 - Use the best-trained model to make predictions on the transformed data.
 
-### 🚀 Deployment
-
+### Deployment
 #### Containerize the Application:
 - Use **Docker** to containerize the application for easy deployment and scalability.
 - Store the Docker image in the **AWS ECR** repository.
@@ -121,12 +118,12 @@ Instructions to set up your local environment for running the project:
   - Run the application.
 
 
-### 🌐 Web Application
+### Web Application:
 - Build a basic web application using **FLASK** and **HTML** to expose the model's prediction functionality.
 - The web app allows users to input customer data and receive predictions on churn status.
 - Ensure that the front-end is user-friendly and responsive to enhance user experience.
 
-### ⚙️ AWS CI/CD Deployment with GitHub Actions
+###  AWS CI/CD Deployment:
 1. **Login to AWS Console.**
 2. **Create IAM User for Deployment** with specific access:
    - **EC2 access:** It is a virtual machine.
@@ -155,28 +152,27 @@ Instructions to set up your local environment for running the project:
 
 #### Required:
 
-  ```bash
-
-  curl -fsSL https://get.docker.com -o get-docker.sh
-  sudo sh get-docker.sh
-  sudo usermod -aG docker ubuntu
-  newgrp docker
+    ```bash
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo usermod -aG docker ubuntu
+    newgrp docker
 
 #### Configure EC2 as Self-Hosted Runner:
 Go to **Settings > Actions > Runners > New Self-Hosted Runner**.
 Choose your **OS** and run the provided commands one by one.
 
-#### Export Environment Variables
+### Export Environment Variables
 
 Before running your application, make sure to export the following environment variables in your terminal:
 
-   ```bash
-   export MONGODB_URL="mongodb+srv://<username>:<password>...."
-   export AWS_ACCESS_KEY_ID="<Your AWS Access Key ID>"
-   export AWS_SECRET_ACCESS_KEY="<Your AWS Secret Access Key>"
+       ```bash
+       export MONGODB_URL="mongodb+srv://<username>:<password>...."
+       export AWS_ACCESS_KEY_ID="<Your AWS Access Key ID>"
+       export AWS_SECRET_ACCESS_KEY="<Your AWS Secret Access Key>"
 
 
-#### Setup GitHub Secrets
+### Setup GitHub Secrets:
 
 To configure your GitHub repository secrets, add the following key-value pairs:
 
