@@ -154,6 +154,7 @@ Instructions to set up your local environment for running the project:
    ```bash
    sudo apt-get update -y
    sudo apt-get upgrade
+
 ### Required:
 
     ```bash
