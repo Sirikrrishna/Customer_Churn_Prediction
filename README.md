@@ -59,15 +59,15 @@ Instructions to set up your local environment for running the project:
    git clone https://github.com/Sirikrrishna/Customer_Churn_Prediction.git
    cd Customer_Churn_Prediction
 2. Set up a virtual environment:
- ```bash
- conda create -n mlproject_env python=3.8 -y
- conda activate mlproject_env
+   ```bash
+   conda create -n mlproject_env python=3.8 -y
+   conda activate mlproject_env
 3. Install Dependencies:
- ```bash
- pip install -r requirements.txt
-  #run
-  python src/pipeline/main.py
-  python app.py
+   ```bash
+   pip install -r requirements.txt
+   #run
+   python src/pipeline/main.py
+   python app.py
 
 ## ⚙️ Training Pipeline
 
