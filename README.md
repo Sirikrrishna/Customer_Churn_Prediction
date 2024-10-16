@@ -121,12 +121,6 @@ Instructions to set up your local environment for running the project:
   - Run the application.
 
 
-### Export the Environment Variables:
-  ```bash
-   export MONGODB_URL="mongodb+srv://<username>:<password>...."
-   export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
-   export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
-
 ## 🌐 Web Application
 - Build a basic web application using **FLASK** and **HTML** to expose the model's prediction functionality.
 - The web app allows users to input customer data and receive predictions on churn status.
@@ -174,10 +168,10 @@ Choose your **OS** and run the provided commands one by one.
 
 Before running your application, make sure to export the following environment variables in your terminal:
 
-```bash
-export MONGODB_URL="mongodb+srv://<username>:<password>...."
-export AWS_ACCESS_KEY_ID="<Your AWS Access Key ID>"
-export AWS_SECRET_ACCESS_KEY="<Your AWS Secret Access Key>"
+   ```bash
+   export MONGODB_URL="mongodb+srv://<username>:<password>...."
+   export AWS_ACCESS_KEY_ID="<Your AWS Access Key ID>"
+   export AWS_SECRET_ACCESS_KEY="<Your AWS Secret Access Key>"
 
 
 ### Setup GitHub Secrets
