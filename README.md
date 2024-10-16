@@ -150,10 +150,12 @@ Instructions to set up your local environment for running the project:
 - Open EC2 and Install Docker in the EC2 Machine:
 
 #### Optional:
+
    ```bash
    sudo apt-get update -y
    sudo apt-get upgrade
 ### Required:
+
     ```bash
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
