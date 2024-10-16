@@ -15,11 +15,11 @@ An **end-to-end machine learning pipeline** to predict customer churn, including
 - [Export Environment Variables](#export-environment-variables)
 - [Setup Github Secrets](#setup-github-secrets)
 
-### About The Project
+### About The Project:
 
 This project is designed to **accurately predict customer churn**. The pipeline involves **data ingestion**, **transformation**, **model training**, **evaluation**, and **deployment**.
 
-### Project Structure
+### Project Structure:
 
         ```bash
         ├── .github
@@ -41,7 +41,7 @@ This project is designed to **accurately predict customer churn**. The pipeline 
         ├── requirements.txt
         ├── setup.py
 
-### Tech Stack
+### Tech Stack:
 
 - **Programming Language**: Python
 - **Database**: MongoDB
@@ -52,63 +52,63 @@ This project is designed to **accurately predict customer churn**. The pipeline 
 - **CI/CD**: GitHub Actions
 - **Web Application**: HTML
 
-### How to Run
+### How to Run:
 
-Instructions to set up your local environment for running the project:
+Instructions to set up your local environment for running the project
 
-1. Clone the repository:
+1. Clone the repository
    ```bash
    git clone https://github.com/Sirikrrishna/Customer_Churn_Prediction.git
    cd Customer_Churn_Prediction
-2. Set up a virtual environment:
+2. Set up a virtual environment
    ```bash
    conda create -n mlproject_env python=3.8 -y
    conda activate mlproject_env
-3. Install Dependencies:
+3. Install Dependencies
    ```bash
    pip install -r requirements.txt
    #run
    python src/pipeline/main.py
    python app.py
 
-### Training Pipeline
+### Training Pipeline:
 
-#### Data Ingestion:
+#### Data Ingestion
 - Ingest data from MongoDB.
 - Split the data into train and test sets.
 - Export the data from MongoDB to CSV files for further processing.
 
-#### Data Transformation:
+#### Data Transformation
 - Transform raw data into a suitable format for model building.
 - Apply transformations like **One-Hot Encoding**, **Ordinal Encoding**, and **Scaling**.
 - Handle imbalanced data using techniques like **SMOTEENN**.
 
-#### Model Trainer and Evaluation:
+#### Model Trainer and Evaluation
 - Train multiple machine learning models such as **K-Neighbors**, **Random Forest**, **SVM**, **XGBoost**, and **CatBoost**.
 - Perform hyperparameter tuning using **GridSearchCV** to find the best model with optimal parameters.
 - Evaluate the best model from the training pipeline.
 - Use the best-performing model for predictions on test data.
-#### Train Pipeline:
+#### Train Pipeline
 - Execute the entire training pipeline to process data, train, evaluate, and deploy the model.
 
-### Prediction Pipeline
-#### Ingest New Data:
+### Prediction Pipeline:
+#### Ingest New Data
 - Ingest new or unseen data from users or MongoDB.
-#### Data Transformation:
+#### Data Transformation
 - Transform the new data using the preprocessing steps from the training pipeline.
-#### Make Predictions:
+#### Make Predictions
 - Use the best-trained model to make predictions on the transformed data.
 
-### Deployment
-#### Containerize the Application:
+### Deployment:
+#### Containerize the Application
 - Use **Docker** to containerize the application for easy deployment and scalability.
 - Store the Docker image in the **AWS ECR** repository.
 
-#### Set Up AWS EC2 Instance:
+#### Set Up AWS EC2 Instance
 - Host the deployed application on an **AWS EC2** instance.
 - Pull the Docker image from **AWS ECR** and run the application on EC2.
 
-#### Automate Deployment with GitHub Actions:
+#### Automate Deployment with GitHub Actions
 - Use **GitHub Actions** to automate the deployment workflow.
 - On each code push:
   - Retrain the model.
@@ -129,28 +129,28 @@ Instructions to set up your local environment for running the project:
    - **EC2 access:** It is a virtual machine.
    - **ECR:** Elastic Container Registry to save your Docker image in AWS.
 
-#### Description of the Deployment Steps:
+#### Description of the Deployment Steps
 - Build Docker image of the source code.
 - Push your Docker image to **ECR**.
 - Launch your **EC2** instance.
 - Pull your image from **ECR** in **EC2**.
 - Launch your Docker image in **EC2**.
 
-#### Policy:
+#### Policy
 - `AmazonEC2ContainerRegistryFullAccess`
 - `AmazonEC2FullAccess`
 
-#### Create ECR Repo to Store/Save Docker Image:
+#### Create ECR Repo to Store/Save Docker Image
 - Save the URI: `235494811035.dkr.ecr.us-east-1.amazonaws.com/customer_churn`
 
-#### Create EC2 Machine (Ubuntu):
+#### Create EC2 Machine (Ubuntu)
 - Open EC2 and Install Docker in the EC2 Machine:
 
-#### Optional:
+#### Optional
 - `sudo apt-get update -y`
 - `sudo apt-get upgrade`
 
-#### Required:
+#### Required
 
     ```bash
     curl -fsSL https://get.docker.com -o get-docker.sh
@@ -158,11 +158,11 @@ Instructions to set up your local environment for running the project:
     sudo usermod -aG docker ubuntu
     newgrp docker
 
-#### Configure EC2 as Self-Hosted Runner:
+#### Configure EC2 as Self-Hosted Runner
 Go to **Settings > Actions > Runners > New Self-Hosted Runner**.
 Choose your **OS** and run the provided commands one by one.
 
-### Export Environment Variables
+### Export Environment Variables:
 
 Before running your application, make sure to export the following environment variables in your terminal:
 
