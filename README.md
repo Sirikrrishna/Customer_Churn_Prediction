@@ -150,15 +150,15 @@ Instructions to set up your local environment for running the project:
 - Open EC2 and Install Docker in the EC2 Machine:
 
 #### Optional:
-```bash
-sudo apt-get update -y
-sudo apt-get upgrade
+   ```bash
+    sudo apt-get update -y
+    sudo apt-get upgrade
 ### Required:
-```bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker ubuntu
-newgrp docker
+    ```bash
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo usermod -aG docker ubuntu
+    newgrp docker
 
 ### Configure EC2 as Self-Hosted Runner:
 Go to **Settings > Actions > Runners > New Self-Hosted Runner**.
