@@ -151,8 +151,8 @@ Instructions to set up your local environment for running the project:
 
 #### Optional:
    ```bash
-    sudo apt-get update -y
-    sudo apt-get upgrade
+   sudo apt-get update -y
+   sudo apt-get upgrade
 ### Required:
     ```bash
     curl -fsSL https://get.docker.com -o get-docker.sh
